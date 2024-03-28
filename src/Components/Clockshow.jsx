@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TimeLine from "./TimeLine";
 
 var interv = null;
 export default class Clockshow extends Component {
@@ -16,6 +17,7 @@ export default class Clockshow extends Component {
       interv = setInterval(() => {
         this.setState({
           second: this.state.second + 1,
+          isStart: true,
         });
         if (this.state.second === 60) {
           this.setState({
@@ -48,18 +50,30 @@ export default class Clockshow extends Component {
       isStart: false,
     });
   };
+  handleSave = () => {
+    const h = this.state.hours;
+    const m = this.state.minutes;
+    const s = this.state.second;
+    const newArray = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
+      s > 9 ? s : "0" + s
+    }`;
+    this.props.setArray([...this.props.array, newArray]);
+  };
   render() {
     const h = this.state.hours;
     const m = this.state.minutes;
     const s = this.state.second;
     return (
       <>
-        <div>{`${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
-          s > 9 ? s : "0" + s
-        }`}</div>
-        <button onClick={this.startInterval}>Start</button>
-        <button onClick={this.stopInterval}>Stop</button>
-        <button onClick={this.resetBtn}>Reset</button>
+        <div onClick={this.handleSave} className="clock-time">{`${
+          h > 9 ? h : "0" + h
+        } : ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s}`}</div>
+        <div className="buttons">
+          <button onClick={this.startInterval}>Start</button>
+          <button onClick={this.stopInterval}>Stop</button>
+          <button onClick={this.resetBtn}>Reset</button>
+        </div>
+        <TimeLine array={this.props.array} />
       </>
     );
   }

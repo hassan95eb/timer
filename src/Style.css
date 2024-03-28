@@ -27,3 +27,42 @@ button:hover {
   background-color: #401f71;
   color: #fdaf7b;
 }
+.clock-time {
+  border: 1px solid #be7b72;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 9px 2px #be7b72;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.main-list {
+  text-align: center;
+  width: 100%;
+  height: 300px;
+  overflow-y: scroll;
+}
+.main-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.main-list::-webkit-scrollbar-track {
+  background: #fdaf7b;
+  width: 8px;
+}
+
+/* Handle */
+.main-list::-webkit-scrollbar-thumb {
+  background: #be7b72;
+}
