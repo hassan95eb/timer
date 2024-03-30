@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TimeLine from "./TimeLine";
+import someContext from "../CreateContext";
 
 var interv = null;
 export default class Clockshow extends Component {
@@ -12,6 +13,7 @@ export default class Clockshow extends Component {
       isStart: false,
     };
   }
+  static contextType = someContext;
   startInterval = () => {
     if (this.state.isStart === false) {
       interv = setInterval(() => {
@@ -57,7 +59,7 @@ export default class Clockshow extends Component {
     const newArray = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
       s > 9 ? s : "0" + s
     }`;
-    this.props.setArray([...this.props.array, newArray]);
+    this.context.setArray([...this.context.array, newArray]);
   };
   render() {
     const h = this.state.hours;
@@ -73,7 +75,7 @@ export default class Clockshow extends Component {
           <button onClick={this.stopInterval}>Stop</button>
           <button onClick={this.resetBtn}>Reset</button>
         </div>
-        <TimeLine array={this.props.array} />
+        <TimeLine array={this.context.array} />
       </>
     );
   }
