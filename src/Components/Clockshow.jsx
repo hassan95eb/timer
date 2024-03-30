@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import TimeLine from "./TimeLine";
 import someContext from "../CreateContext";
 
 var interv = null;
@@ -75,7 +74,6 @@ export default class Clockshow extends Component {
           <button onClick={this.stopInterval}>Stop</button>
           <button onClick={this.resetBtn}>Reset</button>
         </div>
-        <TimeLine array={this.context.array} />
       </>
     );
   }

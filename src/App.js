@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import someContext from "./CreateContext";
 import Clockshow from "./Components/Clockshow";
+import TimeLine from "./Components/TimeLine";
+import someContext from "./CreateContext";
 
 export default function App() {
   const [array, setArray] = useState([]);
@@ -8,6 +9,7 @@ export default function App() {
     <div className="main">
       <someContext.Provider value={{ array: array, setArray: setArray }}>
         <Clockshow />
+        <TimeLine />
       </someContext.Provider>
     </div>
   );
