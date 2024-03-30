@@ -66,3 +66,6 @@ button:hover {
 .main-list::-webkit-scrollbar-thumb {
   background: #be7b72;
 }
+.item-mainList {
+  cursor: pointer;
+}

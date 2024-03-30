@@ -7,7 +7,7 @@ export default function App() {
   const [array, setArray] = useState([]);
   return (
     <div className="main">
-      <someContext.Provider value={{ array: array, setArray: setArray }}>
+      <someContext.Provider value={{ array, setArray }}>
         <Clockshow />
         <TimeLine />
       </someContext.Provider>

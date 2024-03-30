@@ -52,12 +52,13 @@ export default class Clockshow extends Component {
     });
   };
   handleSave = () => {
-    const h = this.state.hours;
-    const m = this.state.minutes;
-    const s = this.state.second;
-    const newArray = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
-      s > 9 ? s : "0" + s
-    }`;
+    // const h = this.state.hours;
+    // const m = this.state.minutes;
+    // const s = this.state.second;
+    // const newArray = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
+    //   s > 9 ? s : "0" + s
+    // }`;
+    const newArray = document.querySelector(".clock-time").innerHTML;
     this.context.setArray([...this.context.array, newArray]);
   };
   render() {

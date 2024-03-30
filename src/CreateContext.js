@@ -1,3 +1,3 @@
 import { createContext } from "react";
-const someContext = createContext({});
+const someContext = createContext({ array: [], setArray: () => {} });
 export default someContext;
